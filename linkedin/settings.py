@@ -14,11 +14,16 @@ NEWSPIDER_MODULE = 'linkedin.spiders'
 
 # HTTPCACHE_ENABLED = True
 
+FEEDS = {
+    'data.json': {'format': 'json'}
+}
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-SCRAPEOPS_API_KEY = 'YOUR_API_KEY'
+import os
 
+SCRAPEOPS_API_KEY = os.environ['SCRAPEOPS_API_KEY']
 SCRAPEOPS_PROXY_ENABLED = True
 
 # Add In The ScrapeOps Monitoring Extension

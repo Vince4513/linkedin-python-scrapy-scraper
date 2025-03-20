@@ -7,10 +7,12 @@ class LinkedCompanySpider(scrapy.Spider):
 
     #add your own list of company urls here
     company_pages = [
-        'https://www.linkedin.com/company/usebraintrust?trk=public_jobs_jserp-result_job-search-card-subtitle',
-        'https://www.linkedin.com/company/centraprise?trk=public_jobs_jserp-result_job-search-card-subtitle'
+        'https://www.linkedin.com/company/ses?trk=public_jobs_jserp-result_job-search-card-subtitle'
         ]
 
+    custom_settings = {
+        'FEEDS': {'data/%(name)s_%(time)s.jsonl': {'format': 'jsonlines'}}
+    }
 
     def start_requests(self):
         

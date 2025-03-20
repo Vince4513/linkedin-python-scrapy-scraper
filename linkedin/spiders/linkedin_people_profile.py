@@ -8,7 +8,7 @@ class LinkedInPeopleProfileSpider(scrapy.Spider):
         }
 
     def start_requests(self):
-        profile_list = ['reidhoffman']
+        profile_list = ['reidhoffman', 'vincentreau']
         for profile in profile_list:
             linkedin_people_url = f'https://www.linkedin.com/in/{profile}/' 
             yield scrapy.Request(url=linkedin_people_url, callback=self.parse_profile, meta={'profile': profile, 'linkedin_url': linkedin_people_url})

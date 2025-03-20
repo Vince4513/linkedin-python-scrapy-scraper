@@ -4,6 +4,10 @@ class LinkedJobsSpider(scrapy.Spider):
     name = "linkedin_jobs"
     api_url = 'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=python&location=United%2BStates&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&start=' 
 
+    custom_settings = {
+        'FEEDS': { 'data/%(name)s_%(time)s.jsonl': { 'format': 'jsonlines',}}
+        }
+
     def start_requests(self):
         first_job_on_page = 0
         first_url = self.api_url + str(first_job_on_page)
